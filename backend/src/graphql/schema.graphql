@@ -1,0 +1,38 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Question {
+  id: ID!
+  text: String!
+}
+
+type Section {
+  id: ID!
+  name: String!
+  questions: [Question!]
+}
+
+type Questionnaire {
+  id: ID!
+  name: String!
+  sections: [Section!]
+}
+
+type Query {
+  question(id: Float!): [Question!]!
+  questionnaire: [Questionnaire!]!
+  section(id: Float!): [Section!]!
+}
+
+type Mutation {
+  createQuestion(text: String!, id: Float!): Question!
+  updateQuestion(text: String!, id: Float!): Boolean!
+  removeQuestion(id: Float!): Boolean!
+  createQuestionnaire(name: String!): Questionnaire!
+  updateQuestionnaire(id: Float!, name: String!): Boolean!
+  removeQuestionnaire(id: Float!): Boolean!
+  createSection(name: String!, id: Float!): Section!
+  updateSection(id: Float!, name: String!): Boolean!
+  removeSection(id: Float!): Boolean!
+}

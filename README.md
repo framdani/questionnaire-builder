@@ -1,2 +1,13 @@
-# questionnaire-builder
-Create customized questionnaires with multiple sections and questions.
+# survey
+
+```
+cd backend
+prisma migrate dev --name init
+npm run start:dev
+```
+
+```
+cd frontend 
+npm run dev
+```
+

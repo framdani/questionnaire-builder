@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://ramdanifatimazahra@localhost:5432/formulaire"
+}
+
+model questionnaire {
+  id Int @id @default(autoincrement())
+  name String @unique
+  sections section[]
+
+}
+
+model section {
+id Int @id @default(autoincrement())
+name String
+questionnaire questionnaire @relation(fields:[questionnaireId], references:[id])
+questionnaireId Int
+questions question[]
+
+@@unique([questionnaireId, name])
+}
+
+model question {
+  id Int @id @default(autoincrement())
+  text String
+  section section @relation(fields:[sectionId], references:[id])
+  sectionId Int
+  @@unique([sectionId, text])
+}
